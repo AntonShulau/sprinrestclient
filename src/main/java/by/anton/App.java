@@ -22,10 +22,13 @@ public class App
         List<Employee> employees= communication.showAllEmployees();
 //
         System.out.println(employees);
+        Employee empl=new Employee();
+        empl.setName("Andrey");
+        empl.setSurname("Shumanov");
+        empl.setDepartment("HR");
+        empl.setSalary(987);
+        communication.saveEmployee(empl);
 
-        Employee emp=communication.getEmployeeById(1);
-        emp.setName("Zaur");
-        communication.saveEmployee(emp);
         List<Employee> employees2= communication.showAllEmployees();
 //
         System.out.println(employees2);
