@@ -52,7 +52,17 @@ public class Communication {
     }
 
     public void deleteEmployee(int id){
-
+        String idURL=URL+"/"+id;
+        ResponseEntity<Employee> employeeResponse=restTemplate.exchange(idURL, HttpMethod.GET,
+                null, new ParameterizedTypeReference<Employee>() {
+                });
+        Employee employee=employeeResponse.getBody();
+        if(employee!=null){
+            restTemplate.delete(idURL);
+            System.out.println("employee was deleted");
+        }else{
+            System.out.println("Not found employee with id"+id);
+        }
 
 
     }

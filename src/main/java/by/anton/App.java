@@ -19,15 +19,19 @@ public class App
         AnnotationConfigApplicationContext context=
                 new AnnotationConfigApplicationContext(Myconfig.class);
         Communication communication=context.getBean("communication",Communication.class);
+
         List<Employee> employees= communication.showAllEmployees();
 //
         System.out.println(employees);
-        Employee empl=new Employee();
-        empl.setName("Andrey");
-        empl.setSurname("Shumanov");
-        empl.setDepartment("HR");
-        empl.setSalary(987);
-        communication.saveEmployee(empl);
+//        Employee empl=new Employee();
+//        empl.setName("Andrey");
+//        empl.setSurname("Shumanov");
+//        empl.setDepartment("HR");
+//        empl.setSalary(987);
+//        communication.saveEmployee(empl);
+//
+
+        communication.deleteEmployee(7);
 
         List<Employee> employees2= communication.showAllEmployees();
 //
